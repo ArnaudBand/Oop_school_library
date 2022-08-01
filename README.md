@@ -1,13 +1,13 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# School Library
 
-> Description the project.
+> School Library app: Implement the classes to represent students and teachers
 
 
 ## Built With
 
-- Major languages
+- Major languages: **Ruby**
 - Frameworks
 - Technologies used
 
@@ -28,8 +28,13 @@ To get a local copy up and running follow these simple example steps.
 
 ### Setup
 
+- Ruby
+
 ### Install
 
+```
+ bundle install
+```
 ### Usage
 
 ### Run tests
@@ -38,19 +43,13 @@ To get a local copy up and running follow these simple example steps.
 
 
 
-## Authors
+## Author
 
-👤 **Author1**
+👤 **Bandonkeye Arnaud**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [ArnaudBand](https://github.com/ArnaudBand)
+- Twitter: [Arnaud](https://twitter.com/@ba104781)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/ArnaudBandonkeye)
 
 ## 🤝 Contributing
 
