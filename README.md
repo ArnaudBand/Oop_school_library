@@ -7,13 +7,10 @@
 
 ## Built With
 
-- Major languages: **Ruby**
-- Frameworks
-- Technologies used
-
-## Live Demo (if available)
-
-[Live Demo Link](https://livedemo.com)
+- **Ruby**
+- Vs code
+- Rubocop
+- Gemfile
 
 
 ## Getting Started
@@ -26,21 +23,26 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
+Ruby should be install in your machine.
+
 ### Setup
 
-- Ruby
+```
+git@github.com:ArnaudBand/Oop_school_library.git
+cd Oop_school_library
+```
 
 ### Install
 
 ```
  bundle install
 ```
-### Usage
 
-### Run tests
+### Run Linters
 
-### Deployment
-
+```
+rubocop
+```
 
 
 ## Author
