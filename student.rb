@@ -6,6 +6,7 @@ class Student < Person
   def initialize(classroom)
     @classroom = classroom
     super(age, name, parent_permission)
+    classroom.add_student(self)
   end
 
   def play_hookey
