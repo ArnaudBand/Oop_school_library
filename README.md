@@ -2,7 +2,7 @@
 
 # School Library
 
-> School Library app: Decorator design pattern to correct the names of people
+> School Library app: Create a form of UI for your school library app.
 
 
 ## Built With
