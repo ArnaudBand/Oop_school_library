@@ -3,11 +3,17 @@ require './person'
 class Student < Person
   attr_accessor :age, :name, :classroom, :parent_permission
 
-  def initialize(classroom)
+  def initialize(name, age, parent_permission: true)
+    super(age, name, parent_permission: parent_permission)
     @classroom = classroom
-    super(age, name, parent_permission)
-    classroom.add_student(self)
   end
+
+
+  def classroom=(classroom)
+    @classroom = classroom
+    classroom.students.push(self) unless classroom.students.include?(self)
+  end
+
 
   def play_hookey
     "¯\(ツ)/¯"
