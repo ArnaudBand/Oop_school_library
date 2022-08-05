@@ -2,15 +2,16 @@ require './decorator'
 require './rental'
 
 class Person < Nameable
-  attr_accessor :name, :age, :rental
+  attr_accessor :name, :age, :rentals
   attr_reader :id
 
-  def initialize(age, name = 'unknown', parent_permission: true)
+  def initialize(name = 'unknown', age, parent_permission: true)
+    super()
     @id = Random.rand(1..999)
     @name = name
     @age = age
     @parent_permission = parent_permission
-    super()
+    @rentals = []
   end
 
   def of_age?
