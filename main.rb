@@ -44,3 +44,6 @@ class Main
     puts '=============================='
   end
 end
+
+main = Main.new
+main.main
