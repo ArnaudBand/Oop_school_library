@@ -88,4 +88,15 @@ class App
     person.add_rental(book_index, date)
     puts 'Rental created!'
   end
+
+  def list_rental
+    puts 'Select the person by id:'
+    id = gets.chomp.to_i
+    person = @people.find(->{nil}) { |person| person.id == id }
+    unless person.nil? 
+      person.rentals.each { |rental|
+        puts "#{rental.book.title} by #{rental.book.author} rented by #{rental.person.name} on #{rental.date}"
+      }
+    end
+  end
 end
