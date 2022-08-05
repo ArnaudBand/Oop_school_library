@@ -29,4 +29,28 @@ class App
       end
     end
   end
+
+  def create_person
+    puts 'Name:'
+    name = gets.chomp.capitalize
+    puts 'Age:'
+    age = gets.chomp.to_i
+    puts 'Do you want to create a student [1] or a teacher [2]?'
+    options = gets.chomp.to_i
+    case options
+      when 1
+        puts 'Has the student get the permission: (y/n)'
+        parent_permission = gets.chomp.upcase == 'Y'
+        @people << Student.new(name, age)
+        puts 'Student created!'
+      when 2
+        puts 'Specialization in the subject:'
+        specialization = gets.chomp
+        @people << Teacher.new(name, age, specialization)
+        puts 'Teacher was created!'
+      else
+        puts 'Invalid option'
+    end
+    puts 'Person created!'
+  end
 end
