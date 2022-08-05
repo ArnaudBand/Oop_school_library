@@ -62,4 +62,30 @@ class App
     @books << Book.new(title, author)
     puts 'Book created!'
   end
+
+  def create_rental
+    if @books.empty? || @people.empty?
+      puts 'No books for rentals or people to rental'
+      return
+    end
+    
+    puts 'Select a book from the library:'
+    @books.each { |book, index|
+      puts "#{index} Title: #{book.title}, Author: #{book.author}"
+    }
+    book_index = @books[gets.chomp.to_i]
+    puts ''
+
+    puts 'Select a person from the library:'
+    @people.each_with_index { |person, index|
+      puts "#{index}  #{person.id} Name: #{person.name}, Age: #{person.age}, Type: #{person.class.name}"
+    }
+    person = @people[gets.chomp.to_i]
+    puts ''
+
+    puts 'Select a date (dd/mm/yyyy):'
+    date = gets.chomp
+    person.add_rental(book_index, date)
+    puts 'Rental created!'
+  end
 end
