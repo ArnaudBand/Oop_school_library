@@ -38,18 +38,18 @@ class App
     puts 'Do you want to create a student [1] or a teacher [2]?'
     options = gets.chomp.to_i
     case options
-      when 1
-        puts 'Has the student get the permission: (y/n)'
-        parent_permission = gets.chomp.upcase == 'Y'
-        @people << Student.new(name, age)
-        puts 'Student created!'
-      when 2
-        puts 'Specialization in the subject:'
-        specialization = gets.chomp
-        @people << Teacher.new(name, age, specialization)
-        puts 'Teacher was created!'
-      else
-        puts 'Invalid option'
+    when 1
+      puts 'Has the student get the permission: (y/n)'
+      parent_permission = gets.chomp.upcase == 'Y'
+      @people << Student.new(name, age)
+      puts 'Student created!'
+    when 2
+      puts 'Specialization in the subject:'
+      specialization = gets.chomp
+      @people << Teacher.new(name, age, specialization)
+      puts 'Teacher was created!'
+    else
+      puts 'Invalid option'
     end
     puts 'Person created!'
   end
@@ -68,7 +68,7 @@ class App
       puts 'No books for rentals or people to rental'
       return
     end
-    
+
     puts 'Select a book from the library:'
     @books.each { |book, index|
       puts "#{index} Title: #{book.title}, Author: #{book.author}"
@@ -92,8 +92,8 @@ class App
   def list_rental
     puts 'Select the person by id:'
     id = gets.chomp.to_i
-    person = @people.find(->{nil}) { |person| person.id == id }
-    unless person.nil? 
+    person = @people.find(-> { nil }) { |person| person.id == id }
+    unless person.nil?
       person.rentals.each { |rental|
         puts "#{rental.book.title} by #{rental.book.author} rented by #{rental.person.name} on #{rental.date}"
       }
