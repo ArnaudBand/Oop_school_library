@@ -19,4 +19,14 @@ class App
       end
     end
   end
+
+  def list_people
+    if @people.empty?
+      puts 'No people in the library'
+    else
+      @people.each do |person|
+        puts "#{person.id} - #{person.name} - #{person.age} - #{person.class.name}"
+      end
+    end
+  end
 end
