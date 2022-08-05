@@ -8,7 +8,7 @@ class Main
   end
 
   def menu_option
-    'Do you want to choose an option in the menu? Please type an option number: '
+    'Do you want to choose an option in the menu? Please type an option number:
     1. List books
     2. List people
     3. Create person
@@ -34,5 +34,13 @@ class Main
       else puts 'Invalid option'
       end
     end
+  end
+
+  def main
+    puts 'Welcome to the library'
+    puts '======================'
+    menu
+    puts 'Thank you for using the library'
+    puts '=============================='
   end
 end
