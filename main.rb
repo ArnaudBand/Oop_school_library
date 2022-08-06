@@ -23,6 +23,7 @@ class Main
     loop do
       puts menu_option
       option = gets.chomp.to_i
+      # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity
       case option
       when 1 then @app.list_books
       when 2 then @app.list_people

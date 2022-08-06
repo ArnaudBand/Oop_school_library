@@ -92,7 +92,7 @@ class App
   def list_rental
     puts 'Select the person by id:'
     id = gets.chomp.to_i
-    person = @people.find(-> { nil }) { |persons| persons.id == id }
+    person = @people.find(-> {}) { |persons| persons.id == id }
     return if person.nil?
 
     person.rentals.each do |rental|
