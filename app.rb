@@ -30,7 +30,7 @@ class App
     end
   end
 
-  def create_person
+  def create_person # rubocop:disable Metrics/MethodLength
     puts 'Name:'
     name = gets.chomp.capitalize
     puts 'Age:'
@@ -41,7 +41,7 @@ class App
     when 1
       puts 'Has the student get the permission: (y/n)'
       parent_permission = gets.chomp.upcase == 'Y'
-      @people << Student.new(name, age)
+      @people << Student.new(name, age, parent_permission: parent_permission)
       puts 'Student created!'
     when 2
       puts 'Specialization in the subject:'
@@ -70,16 +70,16 @@ class App
     end
 
     puts 'Select a book from the library:'
-    @books.each { |book, index|
+    @books.each do |book, index|
       puts "#{index} Title: #{book.title}, Author: #{book.author}"
-    }
+    end
     book_index = @books[gets.chomp.to_i]
     puts ''
 
     puts 'Select a person from the library:'
-    @people.each_with_index { |person, index|
+    @people.each_with_index do |person, index|
       puts "#{index}  #{person.id} Name: #{person.name}, Age: #{person.age}, Type: #{person.class.name}"
-    }
+    end
     person = @people[gets.chomp.to_i]
     puts ''
 
@@ -92,11 +92,11 @@ class App
   def list_rental
     puts 'Select the person by id:'
     id = gets.chomp.to_i
-    person = @people.find(-> { nil }) { |person| person.id == id }
-    unless person.nil?
-      person.rentals.each { |rental|
-        puts "#{rental.book.title} by #{rental.book.author} rented by #{rental.person.name} on #{rental.date}"
-      }
+    person = @people.find(-> { nil }) { |persons| persons.id == id }
+    return if person.nil?
+
+    person.rentals.each do |rental|
+      puts "#{rental.book.title} by #{rental.book.author} rented by #{rental.person.name} on #{rental.date}"
     end
   end
 end
