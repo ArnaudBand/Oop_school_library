@@ -1,3 +1,4 @@
+require 'pry'
 require './book'
 require './student'
 require './teacher'
