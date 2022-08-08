@@ -2,7 +2,7 @@
 
 # School Library
 
-> School Library app: Create a form of UI for your school library app.
+> School Library app: Refact a form of UI for your school library app.
 
 
 ## Built With
@@ -11,6 +11,7 @@
 - Vs code
 - Rubocop
 - Gemfile
+- PRY
 
 
 ## Getting Started

@@ -1,7 +1,7 @@
-require './app'
+require_relative './app'
 
 class Main
-  attr_accessor :app
+  attr_reader :app
 
   def initialize
     @app = App.new
@@ -21,7 +21,6 @@ class Main
 
   def menu # rubocop:disable Metrics/CyclomaticComplexity
     loop do
-      puts menu_option
       option = gets.chomp.to_i
       case option
       when 1 then @app.list_books
@@ -39,6 +38,8 @@ class Main
   def main
     puts 'Welcome to the library'
     puts '======================'
+    puts menu_option
+    puts '***********'
     menu
     puts 'Thank you for using the library'
     puts '=============================='

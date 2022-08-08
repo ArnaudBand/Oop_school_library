@@ -1,3 +1,4 @@
+require 'pry'
 require './book'
 require './student'
 require './teacher'
@@ -92,7 +93,7 @@ class App
   def list_rental
     puts 'Select the person by id:'
     id = gets.chomp.to_i
-    person = @people.find(-> {}) { |persons| persons.id == id }
+    person = @people.find(-> {}) { |per| per.id == id }
     return if person.nil?
 
     person.rentals.each do |rental|
