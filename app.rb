@@ -11,18 +11,6 @@ class App
     @rentals = []
   end
 
-  def menu_option
-    'Do you want to choose an option in the menu? Please type an option number:
-    1. List books
-    2. List people
-    3. Create person
-    4. Create book
-    5. Create rental
-    6. List rentals
-    7. Exit
-    Please choose an option:'
-  end
-
   def list_books
     if @books.empty?
       puts 'No books in the library'
@@ -111,31 +99,5 @@ class App
     person.rentals.each do |rental|
       puts "#{rental.book.title} by #{rental.book.author} rented by #{rental.person.name} on #{rental.date}"
     end
-  end
-
-  def menu # rubocop:disable Metrics/CyclomaticComplexity
-    loop do
-      option = gets.chomp.to_i
-      case option
-      when 1 then list_books
-      when 2 then list_people
-      when 3 then create_person
-      when 4 then create_book
-      when 5 then create_rental
-      when 6 then list_rental
-      when 7 then exit
-      else puts 'Invalid option'
-      end
-    end
-  end
-
-  def run
-    puts 'Welcome to the library'
-    puts '======================'
-    puts menu_option
-    puts '***********'
-    menu
-    puts 'Thank you for using the library'
-    puts '=============================='
   end
 end
