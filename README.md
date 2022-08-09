@@ -2,7 +2,7 @@
 
 # School Library
 
-> School Library app: Refact a form of UI for your school library app.
+> School Library app: Preserve the data from your app and load preserved data on startup.
 
 
 ## Built With
