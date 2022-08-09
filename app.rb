@@ -125,9 +125,9 @@ class App
     return if person.nil?
 
     @rentals.each do |rental|
-      puts 
-      "#{rental.book.title} by #{rental.book.author} rented by #{rental.person.name} on #{rental.date}"
-        if rental.person.id == person.id
+      if rental.person.id == person.id
+        puts "#{rental.book.title} by #{rental.book.author} rented by #{rental.person.name} on #{rental.date}"
+      end
     end
     puts menu_option
   end
