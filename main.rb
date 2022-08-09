@@ -7,18 +7,6 @@ class Main
     @app = App.new
   end
 
-  def menu_option
-    'Do you want to choose an option in the menu? Please type an option number:
-    1. List books
-    2. List people
-    3. Create person
-    4. Create book
-    5. Create rental
-    6. List rentals
-    7. Exit
-    Please choose an option:'
-  end
-
   def menu # rubocop:disable Metrics/CyclomaticComplexity
     loop do
       option = gets.chomp.to_i
@@ -29,7 +17,9 @@ class Main
       when 4 then @app.create_book
       when 5 then @app.create_rental
       when 6 then @app.list_rental
-      when 7 then exit
+      when 7
+        @app.save_data
+        exit
       else puts 'Invalid option'
       end
     end
@@ -38,7 +28,7 @@ class Main
   def main
     puts 'Welcome to the library'
     puts '======================'
-    puts menu_option
+    puts @app.menu_option
     puts '***********'
     menu
     puts 'Thank you for using the library'
