@@ -5,9 +5,9 @@ class Person < Nameable
   attr_accessor :name, :age, :rentals
   attr_reader :id
 
-  def initialize(age, name = 'unknown', parent_permission: true)
+  def initialize(age, name = 'unknown', id = Random.rand(1..999), parent_permission: true)
     super()
-    @id = Random.rand(1..999)
+    @id = id
     @name = name
     @age = age
     @parent_permission = parent_permission
@@ -28,5 +28,9 @@ class Person < Nameable
 
   def add_rental(book, date)
     Rental.new(date, book, self)
+  end
+
+  def save_rental(rental)
+    @rentals << rental unless @rentals.include?(rental)
   end
 end
