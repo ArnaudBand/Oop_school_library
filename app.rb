@@ -1,4 +1,5 @@
 require 'pry'
+require 'json'
 require './book'
 require './student'
 require './teacher'
@@ -6,9 +7,33 @@ require './rental'
 
 class App
   def initialize
-    @books = []
-    @people = []
-    @rentals = []
+    @books = if File.exist?('books.json')
+               JSON.parse(File.read('books.json'), create_additions: true)
+             else
+               []
+             end
+    @people = if File.exist?('people.json')
+                JSON.parse(File.read('people.json'), create_additions: true)
+              else
+                []
+              end
+    @rentals = if File.exist?('rentals.json')
+                 JSON.parse(File.read('rentals.json'), create_additions: true)
+               else
+                 []
+               end
+  end
+
+  def menu_option
+    'Do you want to choose an option in the menu? Please type an option number:
+    1. List books
+    2. List people
+    3. Create person
+    4. Create book
+    5. Create rental
+    6. List rentals
+    7. Exit
+    Please choose an option:'
   end
 
   def list_books
@@ -32,9 +57,9 @@ class App
   end
 
   def create_person # rubocop:disable Metrics/MethodLength
-    puts 'Name:'
+    print 'Name:'
     name = gets.chomp.capitalize
-    puts 'Age:'
+    print 'Age:'
     age = gets.chomp.to_i
     puts 'Do you want to create a student [1] or a teacher [2]?'
     options = gets.chomp.to_i
@@ -53,18 +78,20 @@ class App
       puts 'Invalid option'
     end
     puts 'Person created!'
+    puts menu_option
   end
 
   def create_book
-    puts 'Title:'
+    print 'Title:'
     title = gets.chomp
-    puts 'Author:'
+    print 'Author:'
     author = gets.chomp
     @books << Book.new(title, author)
     puts 'Book created!'
+    puts menu_option
   end
 
-  def create_rental
+  def create_rental # rubocop:disable Metrics/MethodLength
     if @books.empty? || @people.empty?
       puts 'No books for rentals or people to rental'
       return
@@ -74,7 +101,7 @@ class App
     @books.each do |book, index|
       puts "#{index} Title: #{book.title}, Author: #{book.author}"
     end
-    book_index = @books[gets.chomp.to_i]
+    book = @books[gets.chomp.to_i]
     puts ''
 
     puts 'Select a person from the library:'
@@ -86,8 +113,9 @@ class App
 
     puts 'Select a date (dd/mm/yyyy):'
     date = gets.chomp
-    person.add_rental(book_index, date)
+    @rentals << Rental.new(date, book, person)
     puts 'Rental created!'
+    puts menu_option
   end
 
   def list_rental
@@ -96,8 +124,17 @@ class App
     person = @people.find(-> {}) { |per| per.id == id }
     return if person.nil?
 
-    person.rentals.each do |rental|
-      puts "#{rental.book.title} by #{rental.book.author} rented by #{rental.person.name} on #{rental.date}"
+    @rentals.each do |rental|
+      puts 
+      "#{rental.book.title} by #{rental.book.author} rented by #{rental.person.name} on #{rental.date}"
+        if rental.person.id == person.id
     end
+    puts menu_option
+  end
+
+  def save_data
+    File.write('books.json', JSON.generate(@books))
+    File.write('people.json', JSON.generate(@people))
+    File.write('rentals.json', JSON.generate(@rentals))
   end
 end
