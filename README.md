@@ -20,13 +20,10 @@
 - Rubocop
 - Gemfile
 - PRY
+- Rspec
 
 
 ## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
 
 To get a local copy up and running follow these simple example steps.
 
@@ -38,6 +35,9 @@ Ruby should be install in your machine.
 
 ```
 git@github.com:ArnaudBand/Oop_school_library.git
+```
+
+```
 cd Oop_school_library
 ```
 
@@ -51,6 +51,12 @@ cd Oop_school_library
 
 ```
 rubocop
+```
+
+### run test
+
+```
+rspec spec
 ```
 
 
