@@ -1,8 +1,8 @@
 require 'pry'
 require 'json'
-require './book'
-require './student'
-require './teacher'
+require './book/book'
+require './person_class/student'
+require './person_class/teacher'
 require './rental'
 
 class App
