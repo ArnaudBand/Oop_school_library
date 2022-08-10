@@ -2,7 +2,15 @@
 
 # School Library
 
-> School Library app: Preserve the data from your app and load preserved data on startup.
+> Create that you are the librarian of OOP University, and you need a tool to record what books are in the library and who borrows them. The app that you will create will allow you to:
+- Add new students or teachers.
+- Add new books.
+- Save records of who borrowed a given book and when.
+- And all of this will be built in a beautiful and well-organized way!
+
+## Image for the app
+
+![](https://github.com/microverseinc/curriculum-ruby/raw/main/oop/images/uml_class_diagram.png)
 
 
 ## Built With
@@ -12,13 +20,10 @@
 - Rubocop
 - Gemfile
 - PRY
+- Rspec
 
 
 ## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
 
 To get a local copy up and running follow these simple example steps.
 
@@ -30,6 +35,9 @@ Ruby should be install in your machine.
 
 ```
 git@github.com:ArnaudBand/Oop_school_library.git
+```
+
+```
 cd Oop_school_library
 ```
 
@@ -43,6 +51,12 @@ cd Oop_school_library
 
 ```
 rubocop
+```
+
+### run test
+
+```
+rspec spec
 ```
 
 

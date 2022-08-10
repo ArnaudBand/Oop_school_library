@@ -5,8 +5,8 @@ class Rental
     @date = date
     @book = book
     @person = person
-    person.save_rental(self)
-    book.save_rental(self)
+    person.rentals << self
+    book.rentals << self
   end
 
   def to_json(*args)

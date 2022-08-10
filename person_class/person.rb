@@ -1,4 +1,4 @@
-require './decorator'
+require './decorate_class/decorator'
 require './rental'
 
 class Person < Nameable

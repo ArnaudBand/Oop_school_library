@@ -1,6 +1,6 @@
-require './person'
-require_relative './capital'
-require_relative './trim'
+require './person_class/person'
+require './decorate_class/capital'
+require './decorate_class/trim'
 
 person = Person.new(22, 'maximilianus')
 p person.correct_name
